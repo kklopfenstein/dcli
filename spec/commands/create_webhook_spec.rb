@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe Dcli::Commands::CreateWebhook do # rubocop:disable Metrics/BlockLength
-  describe '#execute' do # rubocop:disable Metrics/BlockLength
+RSpec.describe Dcli::Commands::CreateWebhook do
+  describe '#execute' do
     subject { described_class.new(options).execute(output) }
 
     let(:output) { double('output') }

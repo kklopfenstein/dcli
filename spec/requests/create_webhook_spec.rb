@@ -6,26 +6,33 @@ RSpec.describe Dcli::Requests::CreateWebhook do
 
     let(:name) { 'test' }
     let(:channel_id) { '1234' }
-    let(:response) { double('response') }
-    let(:request) { double('request') }
+    let(:response) do
+      Typhoeus::Response.new(
+        code: 200,
+        body: {
+          'id' => '123',
+          'guild_id' => '456',
+          'token' => 'abc123'
+        }.to_json
+      )
+    end
     let(:token) { 'abc123' }
 
     before do
-      allow(request).to receive(:run)
-      allow(request).to receive(:response).and_return(response)
+      Typhoeus.stub(%r{channels/1234/webhooks}).and_return(response)
     end
 
     it 'calls Typhoeus' do
       expect(Typhoeus::Request).to receive(:new).with(
         "#{Dcli::Requests::DiscordRequest::BASE_URL}/channels/#{channel_id}/webhooks",
         method: :post,
-        body: { 'name': name }.to_json,
+        body: { name: name }.to_json,
         params: {},
         headers: {
-          "Authorization": "Bot #{token}",
-          "Content-Type": 'application/json'
+          Authorization: "Bot #{token}",
+          'Content-Type': 'application/json'
         }
-      ).and_return(request)
+      ).and_call_original
       expect(subject).to eq(response)
     end
   end

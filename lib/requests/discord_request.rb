@@ -14,8 +14,8 @@ module Dcli
 
       def headers
         {
-          "Authorization": "Bot #{@token}",
-          "Content-Type": 'application/json'
+          Authorization: "Bot #{@token}",
+          'Content-Type': 'application/json'
         }
       end
 

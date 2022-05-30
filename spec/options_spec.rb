@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Dcli::Options do # rubocop:disable Metrics/BlockLength
+RSpec.describe Dcli::Options do
   subject { described_class.new(argv) }
 
   let(:token) { 'abc123' }

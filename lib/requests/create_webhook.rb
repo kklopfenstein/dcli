@@ -24,7 +24,7 @@ module Dcli
 
       def body
         {
-          'name': @name
+          name: @name
         }
       end
 

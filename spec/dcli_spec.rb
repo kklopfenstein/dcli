@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-RSpec.describe Dcli do # rubocop:disable Metrics/BlockLength
+RSpec.describe Dcli do
   it 'has a version number' do
     expect(Dcli::VERSION).not_to be nil
   end
 
-  describe '#run' do # rubocop:disable Metrics/BlockLength
+  describe '#run' do
     subject { described_class.run(argv, output: stdout) }
 
     let(:argv) { [command_name, arguments].flatten }
     let(:stdout) { double('stdout') }
 
-    context 'executes command successfully' do # rubocop:disable Metrics/BlockLength
+    context 'executes command successfully' do
       let(:command_name) { 'command-name' }
       let(:arguments) { ['--arg', 'value'] }
       let(:options) do
         {
           command: command_name,
-          'arg': 'value'
+          arg: 'value'
         }
       end
       let(:options_parser) do

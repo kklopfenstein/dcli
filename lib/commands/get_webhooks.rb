@@ -15,7 +15,7 @@ module Dcli
           token: @options[:token]
         ).run
 
-        raise CommandFailed, 'Request not successful.' unless response.success?
+        raise CommandFailed, "Request not successful: #{response.code}" unless response.success?
 
         print(output: output, webhooks: JSON.parse(response.body))
       end

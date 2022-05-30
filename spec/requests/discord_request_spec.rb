@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Dcli::Requests::DiscordRequest do # rubocop:disable Metrics/BlockLength
+RSpec.describe Dcli::Requests::DiscordRequest do
   describe '#headers' do
     subject { described_class.new(token: token) }
 
@@ -8,8 +8,8 @@ RSpec.describe Dcli::Requests::DiscordRequest do # rubocop:disable Metrics/Block
 
     let(:expected_headers) do
       {
-        "Authorization": "Bot #{token}",
-        "Content-Type": 'application/json'
+        Authorization: "Bot #{token}",
+        'Content-Type': 'application/json'
       }
     end
 
@@ -18,19 +18,19 @@ RSpec.describe Dcli::Requests::DiscordRequest do # rubocop:disable Metrics/Block
     end
   end
 
-  describe '#run' do # rubocop:disable Metrics/BlockLength
+  describe '#run' do
     subject { clazz.run }
 
     let(:token) { 'token' }
     let(:request_path) { 'test' }
     let(:request_body) do
       {
-        "test": '123'
+        test: '123'
       }
     end
     let(:request_params) do
       {
-        "param1": 'value1'
+        param1: 'value1'
       }
     end
 
@@ -46,13 +46,13 @@ RSpec.describe Dcli::Requests::DiscordRequest do # rubocop:disable Metrics/Block
 
         def body
           {
-            "test": '123'
+            test: '123'
           }
         end
 
         def params
           {
-            "param1": 'value1'
+            param1: 'value1'
           }
         end
       end.new(token: token)
