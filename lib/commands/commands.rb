@@ -4,11 +4,13 @@ module Dcli
   # Dcli commands
   module Commands
     ALL = [
-      CREATE_WEBHOOK = 'create-webhook'
+      CREATE_WEBHOOK = 'create-webhook',
+      GET_WEBHOOKS = 'get-webhooks'
     ].freeze
 
     COMMAND_CLASSES = {
-      CREATE_WEBHOOK => CreateWebhook
+      CREATE_WEBHOOK => CreateWebhook,
+      GET_WEBHOOKS => GetWebhooks
     }.freeze
 
     def self.command_for_name(name)

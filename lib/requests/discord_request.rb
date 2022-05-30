@@ -39,7 +39,7 @@ module Dcli
         request = Typhoeus::Request.new(
           "#{BASE_URL}/#{path}",
           method: method,
-          body: body.to_json,
+          body: body&.to_json,
           params: params,
           headers: headers
         )

@@ -6,11 +6,13 @@ require 'json'
 require 'constants'
 require 'commands/base_command'
 require 'commands/create_webhook'
+require 'commands/get_webhooks'
 require 'commands/commands'
 require 'dcli/version'
 require 'options'
 require 'requests/discord_request'
 require 'requests/create_webhook'
+require 'requests/get_webhooks'
 
 # Base dcli module
 module Dcli

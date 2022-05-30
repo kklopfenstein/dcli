@@ -16,8 +16,11 @@ module Dcli
           token: @options[:token]
         ).run
 
-        output.puts response.success?
-        output.puts response.body
+        raise CommandFailed, 'Request not successful.' unless response.success?
+
+        output.puts "Webhook Id: #{response.body['id']}"
+        output.puts "Guild Id: #{response.body['guild_id']}"
+        output.puts "Webhook Token: #{response.body['token']}"
       end
     end
   end
