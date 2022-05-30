@@ -22,7 +22,7 @@ module Dcli
     execute_command(options: options, output: output)
 
     Constants::ExitCodes::SUCCESS
-  rescue => e # rubocop:disable Style/RescueStandardError
+  rescue StandardError => e
     output.puts e.message
     Constants::ExitCodes::ERROR
   end
